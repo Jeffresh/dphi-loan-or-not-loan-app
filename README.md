@@ -1,2 +1,2 @@
-# dphi-loan-or-not-loan-app
+Loan or not loan app
 Webapp using heroku to deploy ml model
