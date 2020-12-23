@@ -28,17 +28,18 @@ def get_null_cols(data, dtype):
 def handle_missing_values(data):
   cat_data = get_null_cols(data, 'object')
   num_data = get_null_cols(data, 'number')
-  imputer_cat = SimpleImputer(missing_values=np.nan, strategy='most_frequent').fit(data[cat_data.columns])
-  imputer_num = SimpleImputer(missing_values=np.nan, strategy='median').fit(data[num_data.columns])
-  dat_cat = imputer_cat.transform(cat_data)
-  dat_num = imputer_num.transform(num_data)
 
+  if not cat_data.empty:
+    imputer_cat = SimpleImputer(missing_values=np.nan, strategy='most_frequent').fit(data[cat_data.columns])
+    dat_cat = imputer_cat.transform(cat_data)
+    for i, col in enumerate(cat_data.columns): 
+      data[col] = dat_cat[:,i].ravel()
 
-  for i, col in enumerate(cat_data.columns): 
-    data[col] = dat_cat[:,i].ravel()
-
-  for i, col in enumerate(num_data.columns):
-    data[col] = dat_num[:,i].ravel()
+  if not num_data.empty:
+    imputer_num = SimpleImputer(missing_values=np.nan, strategy='median').fit(data[num_data.columns])
+    dat_num = imputer_num.transform(num_data)
+    for i, col in enumerate(num_data.columns):
+      data[col] = dat_num[:,i].ravel()
 
 def map_dependents(data):
   map_dependents = {'0': 0, '1': 1, '2':2, '3+':3}
