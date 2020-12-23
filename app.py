@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 # load the saved model
 def load_model():
-    return pickle.load(open('src\loan_model.pkl','rb'))
+    return pickle.load(open('loan_model.pkl','rb'))
 
 # home page
 @app.route('/')

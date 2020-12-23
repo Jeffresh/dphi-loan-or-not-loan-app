@@ -107,5 +107,5 @@ if __name__ == "__main__":
     # print("f1-score {} ".format(f1_score(y_test, xgc_model.predict(X_test))))
 
     # Save model
-    filename = 'src/loan_model.pkl'
+    filename = 'loan_model.pkl'
     pickle.dump(xgc_model, open(filename,'wb'))
