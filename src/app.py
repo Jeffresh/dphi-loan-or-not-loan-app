@@ -67,16 +67,7 @@ def predict():
     features = [x for x in request.form.values()]
 
     example = create_example(features)
-
-
-    print('*'*100)
-    print(example)
-    print('*'*100)
-
-
-
-
-
+    
     model = load_model()
     prediction = model.predict(example)
 

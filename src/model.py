@@ -56,10 +56,10 @@ def handle_cat_data(data):
   enc_h = OneHotEncoder(handle_unknown='ignore')
   _ , cat_cols = divide_per_type(data, 'object')
 
-  print(cat_cols)
+#   print(cat_cols)
 
   for col in cat_cols:
-    print(col)
+    # print(col)
     if data[col].value_counts().shape[0] <= 2:
       enc.fit(data[col])
       df = pd.DataFrame(enc.transform(data[col]), columns=[col])
@@ -104,7 +104,7 @@ if __name__ == "__main__":
     xgc_model.fit(X_train, y_train)
 
     # Test model
-    print("f1-score {} ".format(f1_score(y_test, xgc_model.predict(X_test))))
+    # print("f1-score {} ".format(f1_score(y_test, xgc_model.predict(X_test))))
 
     # Save model
     filename = 'src/loan_model.pkl'
