@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title> Loan or not loan?</title>
+    </head>
+    <body>
+        <div class='login'>
+            <h1>Welcome to Loan or not Loan classifier</h1>
+            <form action="{{url_for('predict')}}" method="post">
+                <ul>
+                    <li><input type="text" name="Gender" placeholder="Male | Female" required='required'></li>
+                    <li><input type="text" name="Married" placeholder="Yes | No" required='required'></li>
+                    <li><input type="text" name="Dependents" placeholder="0,1,2,3+" required='required'></li>
+                    <li><input type="text" name="Education" placeholder="Graduate | Not Graduate" required='required'></li>
+                    <li><input type="text" name="Self Employed" placeholder="Yes | No" required='required'></li>
+                    <li><input type="text" name="Applicant Income" placeholder="4547" required='required'></li>
+                    <li><input type="text" name="Coapplicant Income" placeholder="0" required='required'></li>
+                    <li><input type="text" name="Loan ammount" placeholder="115" required='required'></li>
+                    <li><input type="text" name="Loan ammount term" placeholder="360" required='required'></li>
+                    <li><input type="text" name="Credit History" placeholder="1" required='required'></li>
+                    <li><input type="text" name="Property area" placeholder="Rural | Urban | Semiurban" required='required'></li>
+                  </ul> 
+                <br><br>
+                <button type="submit" class="btn btn-primary btn-block btn-large"> Submit</button>
+            </form>    
+        </div>
+        <br>
+        <br>
+        {{output}}
+    </body>
+</html>
