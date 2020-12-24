@@ -5,14 +5,14 @@ import pickle
 import os
 import pandas as pd
 from collections import OrderedDict
-from src.models.model import handle_missing_values, map_dependents, handle_cat_data
+from model import handle_missing_values, map_dependents, handle_cat_data
 
 # app name
-app = Flask(__name__, template_folder="src\templates")
+app = Flask(__name__)
 
 # load the saved model
 def load_model():
-    return pickle.load(open('src\models\loan_model.pkl','rb'))
+    return pickle.load(open('loan_model.pkl','rb'))
 
 # home page
 @app.route('/')
@@ -43,7 +43,7 @@ def create_example(values):
             example_dict[col] = str(value)
     
     example_df = pd.DataFrame(example_dict, index=[0])
-    
+
     handle_missing_values(example_df)
     map_dependents(example_df)
     example_df = handle_cat_data(example_df)
