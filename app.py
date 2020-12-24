@@ -1,11 +1,11 @@
 # import libraries
 import numpy as np
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, render_template
 import pickle
 import os
 import pandas as pd
 from collections import OrderedDict
-from model import divide_per_type, get_null_cols, handle_missing_values, map_dependents, need_hot_encoding, handle_cat_data
+from model import handle_missing_values, map_dependents, handle_cat_data
 
 # app name
 app = Flask(__name__)
@@ -72,8 +72,10 @@ def predict():
     prediction = model.predict(example)
 
     result = labels[prediction[0]]
+    
 
     return render_template('index.html', output='Your loan is {}'.format(result))
+
 
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
