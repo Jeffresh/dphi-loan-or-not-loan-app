@@ -8,7 +8,7 @@ from collections import OrderedDict
 from src.models.model import handle_missing_values, map_dependents, handle_cat_data
 
 # app name
-app = Flask(__name__, template_folder="src\\templates")
+app = Flask(__name__, template_folder="src\templates")
 
 # load the saved model
 def load_model():
