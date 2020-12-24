@@ -5,14 +5,14 @@ import pickle
 import os
 import pandas as pd
 from collections import OrderedDict
-from model import handle_missing_values, map_dependents, handle_cat_data
+from src.models.model import handle_missing_values, map_dependents, handle_cat_data
 
 # app name
-app = Flask(__name__)
+app = Flask(__name__, template_folder="src\\templates")
 
 # load the saved model
 def load_model():
-    return pickle.load(open('loan_model.pkl','rb'))
+    return pickle.load(open('src\models\loan_model.pkl','rb'))
 
 # home page
 @app.route('/')
