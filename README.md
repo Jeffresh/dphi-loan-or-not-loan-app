@@ -36,4 +36,7 @@ Deploy the application on Heroku.
     Property_Area : The type of location where the applicant’s property lies (Rural, Semiurban, Urban)
     Loan_Status: Loan granted or not (Y, N)
   
+  ## APP
+  
+  https://loan-or-not-loan.herokuapp.com/
  
