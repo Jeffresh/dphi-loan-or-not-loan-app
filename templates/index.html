@@ -3,11 +3,18 @@
     <head>
         <meta charset="UTF-8">
         <title> Loan or not loan?</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    </head>
+    
+      </head>
     <body>
         <div class='login'>
-            <h1>Welcome to Loan or not Loan classifier</h1>
+          <div class="jumbotron jumbotron-fluid">
+            <div class="container">
+              <h1 class="display-4">Welcome to Loan or not Loan classifier</h1>
+              <p class="lead">{{output}}</p>
+            </div>
+          </div>
             <form action="{{url_for('predict')}}" method="post">
                   <div class="form-group">
                     <label for="genderSelect">Gender</label>
@@ -73,7 +80,7 @@
                   </div>
                   <div class="form-group">
                     <label for="creaditHistory">Credit History: </label>
-                    <input name="Credit History" required class="form-control" id="loanAmountInput" placeholder="1000" aria-labelledby="creditHistoryHelp">
+                    <input name="Credit History" required class="form-control" id="loanAmountInput" placeholder="1" aria-labelledby="creditHistoryHelp">
                     <small id="creditHistoryHelp" class="form-text text-muted">A record of a borrower's responsible repayment of debts(1 has all debts paid, 0 not paid).</small>                      
                   </div>
                   <div class="form-group">
@@ -85,12 +92,9 @@
                     </select>
                     <small id="propertyAreaHelp"  class="form-text text-muted">The type of location whre the applicant's property lies(Rural, Semiurban, Urban).</small>                      
                   </div>
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary" data-toggle="collapse" data-target="#modalPrediction" aria-expanded="true" aria-controls="collapseExample">Submit</button>
             </form>    
         </div>
-        <br>
-        <br>
-        {{output}}
          <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
